@@ -8,7 +8,7 @@ const logger = (req,res,next)=>{
     let dateLocal = date.toLocaleString()
     
     /* console.log(method , url , dateLocal); */
-    log = `start = status ${method} ${url} ${dateLocal}`
+    log = `start = [${method}] [${url}] [${dateLocal}]`
     /* console.log(log); */
     next()
 }
@@ -17,7 +17,7 @@ const getStatusOnFinish = (statusCode) =>{
     let dateLocalEnd = dateEnd.toLocaleString()
     
     /* console.log('status',statusCode,dateLocalEnd); */
-    log += ` end = statusCode ${statusCode} ${dateLocalEnd}`   
+    log += ` end = statusCode [${statusCode}] [${dateLocalEnd}]`   
     console.log(log);
 
 }
