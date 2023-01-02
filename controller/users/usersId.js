@@ -1,4 +1,5 @@
-const database = require('../../models/userModel')
+const {getStatusOnFinish} = require('../../log/logger')
+const database = require('../../models/userModel')  //module.export = connection  when init can set  const database 
 const usersId = (req,res)=>{
     var id = req.params.id
     console.log(id);
@@ -8,8 +9,9 @@ const usersId = (req,res)=>{
         if(error){
             throw error;
         }else{
-            /* console.log(data); */
+            /* console.log(data); */  
             res.json(data)
+            getStatusOnFinish(res.statusCode)
         }
     })
 }

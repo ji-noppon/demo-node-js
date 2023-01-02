@@ -1,4 +1,5 @@
-const database = require('../../models/userModel')
+const { getStatusOnFinish, logger } = require('../../log/logger');
+const database = require('../../models/userModel')  //module.export = connection  when init can set  const database 
 const users = (req,res)=>{
     var query = "select * from customers"
     database.query(query,(error,data)=>{
@@ -7,6 +8,7 @@ const users = (req,res)=>{
         }else{
             /* console.log(data); */
             res.json(data)
+            getStatusOnFinish(res.statusCode)
         }
     })
    
