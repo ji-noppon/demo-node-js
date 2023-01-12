@@ -1,10 +1,11 @@
+require("dotenv").config()
 const mysql = require('mysql');
 
 let connection = mysql.createConnection({
-    host : 'localhost',
-    database : 'cookieshop',
-    user : 'root',
-    password : ''
+    host        : process.env.HOST,
+    database    : process.env.DATABASE,
+    user        : process.env.USER,
+    password    : process.env.PASSWORD
 })
 
 connection.connect( function(error){
